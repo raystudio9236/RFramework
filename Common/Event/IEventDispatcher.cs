@@ -4,12 +4,16 @@ namespace RFramework.Common.Event
     {
         EventDispatcher EventDispatcher { get; }
 
-        void AddHandler(short type, EventHandler handler);
+        void AddEventHandler(short type, EventHandler handler);
 
-        void AddHandler<T>(short type, EventHandler<T> handler);
+        void AddEventHandler<T>(short type, EventHandler<T> handler);
 
-        void RemoveHandler(short type, EventHandler handler);
+        void RemoveEventHandler(short type, EventHandler handler);
 
-        void RemoveHandler<T>(short type, EventHandler<T> handler);
+        void RemoveEventHandler<T>(short type, EventHandler<T> handler);
+
+        void SendEvent(short type);
+
+        void SendEvent<T>(short type, T msg);
     }
 }
