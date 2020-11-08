@@ -39,19 +39,27 @@ namespace RFramework.Common.Log
             LogException(obj);
         }
 
-        public static void Log(object obj = null)
+        public static void Log(object obj)
         {
             if (_level <= Level.Log)
             {
-                Debug.Log("[" + Time.frameCount + "]" + obj);
+                Debug.Log($"[{Time.frameCount}] {obj}");
             }
         }
 
-        public static void LogWarning(object obj = null)
+        public static void LogFormat(string format, params object[] pars)
+        {
+            if (_level <= Level.Log)
+            {
+                Debug.LogFormat($"[{Time.frameCount}] {format}", pars);
+            }
+        }
+
+        public static void LogWarning(object obj)
         {
             if (_level <= Level.Warning)
             {
-                Debug.LogWarning("[" + Time.frameCount + "]" + obj);
+                Debug.LogWarning($"[{Time.frameCount}] {obj}");
             }
         }
 
@@ -59,16 +67,23 @@ namespace RFramework.Common.Log
         {
             if (_level <= Level.Warning)
             {
-                Debug.LogWarningFormat(format, pars);
+                Debug.LogWarningFormat($"[{Time.frameCount}] {format}", pars);
             }
         }
 
-
-        public static void LogError(object obj = null)
+        public static void LogError(object obj)
         {
             if (_level <= Level.Error)
             {
-                Debug.LogError("[" + Time.frameCount + "]" + obj);
+                Debug.LogError($"[{Time.frameCount}] {obj}");
+            }
+        }
+
+        public static void LogErrorFormat(string format, params object[] pars)
+        {
+            if (_level <= Level.Error)
+            {
+                Debug.LogErrorFormat($"[{Time.frameCount}] {format}", pars);
             }
         }
 
@@ -77,22 +92,6 @@ namespace RFramework.Common.Log
             if (_level <= Level.Error)
             {
                 Debug.LogException(obj);
-            }
-        }
-
-        public static void LogFormat(string format, params object[] pars)
-        {
-            if (_level <= Level.Log)
-            {
-                Debug.LogFormat(format, pars);
-            }
-        }
-
-        public static void LogErrorFormat(string format, params object[] pars)
-        {
-            if (_level <= Level.Error)
-            {
-                Debug.LogErrorFormat(format, pars);
             }
         }
     }
