@@ -32,7 +32,7 @@ namespace RFramework.Common.Event
                     if (handler == null)
                         continue;
 
-                    var eventHandler = (EventHandler) handler;
+                    var eventHandler = (EventHandler)handler;
                     eventHandler(EventType);
                 }
             }
@@ -44,7 +44,7 @@ namespace RFramework.Common.Event
                     if (handler == null)
                         continue;
 
-                    var eventHandler = (EventHandler<T>) handler;
+                    var eventHandler = (EventHandler<T>)handler;
                     eventHandler(EventType, msgData);
                 }
             }
